@@ -1,0 +1,39 @@
+{
+  "name": "waterline-sails-solr",
+  "version": "0.10.0",
+  "description": "sails-solr adapter for Sails / Waterline",
+  "main": "sails-solrAdapter.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balderdashy/waterline-%s.git"
+  },
+  "keywords": [
+    "sails-solr",
+    "adapter",
+    "sails",
+    "waterline",
+    "sails.js",
+    "plugin"
+  ],
+  "author": "nelovishk",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "js-md4": "^0.1.1"
+  },
+  "devDependencies": {
+    "captains-log": "~0.11.0",
+    "mocha": "^2.2.4",
+    "waterline-adapter-tests": "~0.10.0"
+  },
+  "waterlineAdapter": {
+    "type": "sails-solr",
+    "interfaces": [
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
+  }
+}
