@@ -22,10 +22,12 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "js-md4": "^0.1.1"
+    "js-md4": "^0.1.1",
+    "solr-client": "^0.5.0"
   },
   "devDependencies": {
     "captains-log": "~0.11.0",
+    "chai": "^2.3.0",
     "mocha": "^2.2.4",
     "waterline-adapter-tests": "~0.10.0"
   },
