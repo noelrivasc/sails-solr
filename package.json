@@ -1,6 +1,6 @@
 {
   "name": "sails-solr",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "sails-solr adapter for Sails / Waterline",
   "main": "sails-solrAdapter.js",
   "scripts": {
