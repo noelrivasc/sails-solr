@@ -17,32 +17,23 @@ $ npm install sails-solr
 **Actually, not yet.** You'll have to clone this repository and link it with npm. We'll publish as a module as soon as we have decent documentation on getting started.
 
 ### Usage notes
-Solr dynamic fields are supported without forcing the developer to use Solr-specific suffixes in their models: the suffix *_s* in name_s that would hint Solr to treat it as a string, for example. 
+Use the model *columnName* property for attributes to support Solr dynamic fields without having to use Solr-specific suffixes in your models.
 
-To accomplish this, Solr specific configuration is added to the Sails model configuration to determine how to map the model field names to the solr-specific ones.
-
-This is an example of how field mapping is configured:
+This is an example of how to map model attributes to dynamic Solr fields
 
 ```javascript
 module.exports = {
-  autoPK: false, // This is important for Solr, since it doesn't use numeric IDs
-  solrConfig: {
-    fieldMapping: {
-      name:       'name_s',         // for a String dynamic field *_s in your schema.xml
-      itemCount:  'itemCount_i',    // for an Int dynamic field *_i 
-      date:       'date_dt'         // for a DateTime dynamic field *_dt
-    }
-  },
   attributes: {
     name: {
       type: 'string',
+      columnName: 'name_s'  // If your Solr schema has a dynamic field with the pattern *_s, 
+                            // this field will be treated as a string without having to add it
+                            // to the schema as a named field
     },
     itemCount: {
       type: 'integer',
+      columnName: 'itemCount_is' // You can also use multiple value fields
     },
-    name: {
-      type: 'datetime',
-    }
   }
 }
 ```
@@ -54,6 +45,37 @@ This adapter exposes the following methods:
 
 + **Status**
   + In development
+
+Facets are supported in `find`. Just add a *facet* property to your find criteria:
+
+```javascript
+Model.find({
+  facet: {
+    field: 'somefield',
+    pivot: 'somefield',
+    mincount: 1
+    ...
+  }  
+})
+```
+
+Facet properties supported by node-client are supported.
+
+**Getting raw results**
+
+If you need to get the raw Solr results for further processing (say, you want to get the pivot fields and do something with them instead of getting the docs), pass the *rawResponse* option in your search criteria.
+
+```javascript
+Model.find({
+  rawResponse: true,
+  facet: {
+    field: 'somefield',
+    pivot: 'somefield',
+    mincount: 1
+    ...
+  }  
+})
+```
 
 ###### `create()`
 
