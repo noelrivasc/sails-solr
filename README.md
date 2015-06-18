@@ -93,6 +93,14 @@ Model.find({
   + In development
 
 
+###### `drop()`
++ **Status**
+  * Implemented
+
+To simulate `drop` in Solr a simple delete query is run. A field is used to target the documents for deletion. The default field used for targeting documents that belong to a model is `sails_solr_table_s`.
+
+The field name can be overriden in the `solrTableField` property of a model.
+
 ### Interfaces
 
 This adapter implements the semantic and queryable [interfaces](https://github.com/balderdashy/sails-docs/blob/master/contributing/adapter-specification.md).
