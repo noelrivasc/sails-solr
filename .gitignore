@@ -8,3 +8,4 @@ ssl
 nbproject
 npm-debug.log
 test/config.js
+*.swp
