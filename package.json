@@ -24,7 +24,7 @@
   "dependencies": {
     "js-md4": "^0.1.1",
     "node-uuid": "^1.4.3",
-    "solr-client": "git+ssh://git@github.com:nelovishk/solr-node-client.git"
+    "solr-client": "git+https://github.com/nelovishk/solr-node-client.git"
   },
   "devDependencies": {
     "captains-log": "~0.11.0",
