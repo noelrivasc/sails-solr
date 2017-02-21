@@ -8,7 +8,7 @@ var queryBuilder  = require('../../lib/queryBuilder.js');
 describe("queryBuilder", function() {
   describe("getCriteriaType()", function() {
     it('should return "match value" if the criteria is a string', function(done) {
-      expect(queryBuilder.getCriteriaType('test string')).to.equal('match value');
+      expect(queryBuilder.getCriteriaType('test string', 'string')).to.equal('match value');
       done();
     });
 
